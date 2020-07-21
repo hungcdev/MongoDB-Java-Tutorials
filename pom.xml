@@ -3,18 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.hungcdev</groupId>
     <artifactId>Mongodb-Java-Tutorials</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+
     <modules>
         <module>mongodb-connection</module>
-        <module>mongodb-insertion</module>
-        <module>mongodb-query</module>
-        <module>mongodb-update</module>
         <module>data</module>
+        <module>mongodb-insert</module>
     </modules>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <root.version>1.0</root.version>
+
+        <mongodb.java.driver.version>3.12.6</mongodb.java.driver.version>
+        <lombok.version>1.18.12</lombok.version>
+    </properties>
 
 </project>

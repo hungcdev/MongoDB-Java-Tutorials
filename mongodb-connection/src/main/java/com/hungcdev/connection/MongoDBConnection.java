@@ -11,7 +11,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
-public class MongoDbConnection {
+public class MongoDBConnection {
     MongoClient mongoClient;
 
     public void connectMongoDB() {
@@ -45,7 +45,7 @@ public class MongoDbConnection {
     }
 
     public static void main(String[] args) {
-        MongoDbConnection mongoDbConnection = new MongoDbConnection();
+        MongoDBConnection mongoDbConnection = new MongoDBConnection();
         mongoDbConnection.connectMongoDBWithPOJOs("localhost", 27017);
         MongoDatabase mongoDatabase = mongoDbConnection.getMongoClient().getDatabase("HungcDev");
         mongoDatabase.createCollection("User");
