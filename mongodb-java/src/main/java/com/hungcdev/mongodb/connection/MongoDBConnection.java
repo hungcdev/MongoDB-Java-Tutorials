@@ -45,5 +45,4 @@ public class MongoDBConnection {
         MongoDatabase mongoDatabase = mongoClient.getDatabase("HungcDev");
         mongoDatabase.createCollection("User");
     }
-
 }

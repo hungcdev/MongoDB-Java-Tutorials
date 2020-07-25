@@ -4,16 +4,19 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Post {
     private String id;
     private String title;
     private String user;
     private String content;
     private List<String> tags;
+    private int view;
     private boolean enable;
 
 }

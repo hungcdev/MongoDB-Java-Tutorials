@@ -18,9 +18,14 @@ public class InsertDocument {
         this.mongoDatabase = mongoClient.getDatabase(databaseName);
     }
 
-    public <T> void insert(String collectionName, T document , Class<T> classType) {
+    public <T> void insert(String collectionName, Class<T> classType, T document){
         MongoCollection<T> collection = mongoDatabase.getCollection(collectionName, classType);
         collection.insertOne(document);
+    }
+
+    public <T> void insertMany(String collectionName, Class<T> classType, T... documents) {
+        MongoCollection<T> collection = mongoDatabase.getCollection(collectionName, classType);
+        collection.insertMany(List.of(documents));
     }
 
     public static void main(String[] args) {
@@ -37,7 +42,7 @@ public class InsertDocument {
                 .tags(List.of("Mongodb", "Mongodb Java"))
                 .enable(true)
                 .build();
-        insertDocument.insert("Post", post, Post.class);
+        insertDocument.insert("Post", Post.class, post);
         System.out.println("Insert Post Successful!");
     }
 
