@@ -2,6 +2,7 @@ package com.hungcdev.mongodb.insertion;
 
 import com.hungcdev.mongodb.connection.MongoDBConnection;
 import com.hungcdev.mongodb.data.Post;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
@@ -9,14 +10,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class InsertDocument {
-    private MongoDBConnection mongoDBConnection;
 
     private MongoDatabase mongoDatabase;
 
     public InsertDocument(String ip, int port, String databaseName) {
-        this.mongoDBConnection = new MongoDBConnection();
-        this.mongoDBConnection.connectMongoDBWithPOJOs(ip, port);
-        this.mongoDatabase = mongoDBConnection.getMongoClient().getDatabase(databaseName);
+        MongoClient mongoClient = MongoDBConnection.connectMongoDBWithPOJOs(ip, port);
+        this.mongoDatabase = mongoClient.getDatabase(databaseName);
     }
 
     public <T> void insert(String collectionName, T document , Class<T> classType) {
@@ -25,6 +24,10 @@ public class InsertDocument {
     }
 
     public static void main(String[] args) {
+        insertDocumentExample();
+    }
+
+    private static void insertDocumentExample() {
         InsertDocument insertDocument = new InsertDocument("localhost", 27017, "HungcDev");
         Post post = Post.builder()
                 .id(UUID.randomUUID().toString())
@@ -37,7 +40,6 @@ public class InsertDocument {
         insertDocument.insert("Post", post, Post.class);
         System.out.println("Insert Post Successful!");
     }
-
 
 
 }
