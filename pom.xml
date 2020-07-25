@@ -9,19 +9,12 @@
     <version>1.0</version>
 
     <modules>
-        <module>mongodb-connection</module>
-        <module>data</module>
-        <module>mongodb-insert</module>
+        <module>mongodb-java</module>
     </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-
-        <root.version>1.0</root.version>
-
-        <mongodb.java.driver.version>3.12.6</mongodb.java.driver.version>
-        <lombok.version>1.18.12</lombok.version>
     </properties>
 
 </project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mongodb-java" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="data" target="11" />
+      <module name="mongodb-connection" target="11" />
+      <module name="mongodb-insert" target="11" />
+      <module name="mongodb-java" target="11" />
+      <module name="MongoDB-Java-Tutorials" target="11" />
+      <module name="mongodb-query" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

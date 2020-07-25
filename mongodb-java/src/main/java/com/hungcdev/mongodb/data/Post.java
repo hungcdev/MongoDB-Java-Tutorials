@@ -1,4 +1,4 @@
-package com.hungcdev.data;
+package com.hungcdev.mongodb.data;
 
 import lombok.*;
 

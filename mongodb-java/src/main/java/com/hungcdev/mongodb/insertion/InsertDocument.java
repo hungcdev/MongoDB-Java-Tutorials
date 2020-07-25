@@ -1,7 +1,7 @@
-package com.hungcdev.insert;
+package com.hungcdev.mongodb.insertion;
 
-import com.hungcdev.connection.MongoDBConnection;
-import com.hungcdev.data.Post;
+import com.hungcdev.mongodb.connection.MongoDBConnection;
+import com.hungcdev.mongodb.data.Post;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
