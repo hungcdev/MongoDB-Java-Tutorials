@@ -13,42 +13,37 @@ import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class MongoDBConnection {
-    MongoClient mongoClient;
 
-    public void connectMongoDB() {
-        mongoClient = MongoClients.create();
-        System.out.println("Connect MongoDB successful!");
+    public static MongoClient connectMongoDB() {
+        return MongoClients.create();
     }
 
-    public void connectMongoDB(String ip, int port) {
-        mongoClient = MongoClients.create("mongodb://" + ip + ":" + port);
-        System.out.println("Connect MongoDB successful!");
+    public static MongoClient connectMongoDB(String ip, int port) {
+        return MongoClients.create("mongodb://" + ip + ":" + port);
     }
 
-    public void connectMongoDBWithPOJOs(String ip, int port) {
+    public static MongoClient connectMongoDBWithPOJOs(String ip, int port) {
         ConnectionString connectionString = new ConnectionString("mongodb://" + ip + ":" + port);
+
         CodecRegistry pojoCodecRegistry = CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build());
         CodecRegistry codecRegistry = CodecRegistries.fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
+
         MongoClientSettings clientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .codecRegistry(codecRegistry)
                 .build();
-        mongoClient = MongoClients.create(clientSettings);
-        System.out.println("Connect MongoDB successful!");
-    }
 
-    public MongoClient getMongoClient() {
-        return mongoClient;
-    }
-
-    public void setMongoClient(MongoClient mongoClient) {
-        this.mongoClient = mongoClient;
+        return MongoClients.create(clientSettings);
     }
 
     public static void main(String[] args) {
-        MongoDBConnection mongoDbConnection = new MongoDBConnection();
-        mongoDbConnection.connectMongoDBWithPOJOs("localhost", 27017);
-        MongoDatabase mongoDatabase = mongoDbConnection.getMongoClient().getDatabase("HungcDev");
+        connectionExample();
+    }
+
+    private static void connectionExample() {
+        MongoClient mongoClient = MongoDBConnection.connectMongoDBWithPOJOs("localhost", 27017);
+        MongoDatabase mongoDatabase = mongoClient.getDatabase("HungcDev");
         mongoDatabase.createCollection("User");
     }
+
 }
