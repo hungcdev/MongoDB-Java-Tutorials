@@ -16,7 +16,7 @@ public class Post {
     private String user;
     private String content;
     private List<String> tags;
+    private PostQuality postQuality;
     private int view;
     private boolean enable;
-
 }

@@ -50,7 +50,7 @@ public class QueryDocumentExample {
         /* Tim kiem document Post trong Collection thoa man tat ca cac dieu kien  */
         findANDLogicExample(IP, port, databaseName, collection);
 
-        /* Tim kiem document Post trong Collection bat ky mot trong cac dieu kien  */
+        /* Tim kiem document Post trong Collection thoa man bat ky mot trong cac dieu kien  */
         findORLogicExample(IP, port, databaseName, collection);
     }
 

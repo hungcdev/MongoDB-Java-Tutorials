@@ -43,6 +43,6 @@ public class MongoDBConnection {
     private static void connectionExample() {
         MongoClient mongoClient = MongoDBConnection.connectMongoDBWithPOJOs("localhost", 27017);
         MongoDatabase mongoDatabase = mongoClient.getDatabase("HungcDev");
-        mongoDatabase.createCollection("User");
+        mongoDatabase.createCollection("Post");
     }
 }
