@@ -17,6 +17,7 @@ public class Post {
     private String content;
     private List<String> tags;
     private List<Integer> numbers;
+    private List<Comment> comments;
     private PostQuality postQuality;
     private int view;
     private boolean enable;
