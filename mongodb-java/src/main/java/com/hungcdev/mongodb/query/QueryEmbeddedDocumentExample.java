@@ -19,7 +19,7 @@ public class QueryEmbeddedDocumentExample {
         String collection = "Post";
 
         /* Khoi tao du lieu */
-//        initDataExample(IP, port, databaseName, collection);
+        initDataExample(IP, port, databaseName, collection);
 
         findEmbeddedDocumentExample1(IP, port, databaseName,collection);
 
